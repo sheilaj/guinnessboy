@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the gb_item feature.
+ */
+
+include_once 'gb_item.features.inc';
