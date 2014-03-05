@@ -21,11 +21,11 @@ function gb_item_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'entityreference',
         'settings' => array(
-          'links' => 0,
+          'links' => TRUE,
           'view_mode' => 'default',
         ),
         'type' => 'entityreference_entity_view',
-        'weight' => 0,
+        'weight' => 2,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -56,7 +56,7 @@ function gb_item_field_default_field_instances() {
         ),
       ),
       'type' => 'inline_entity_form',
-      'weight' => 4,
+      'weight' => 5,
     ),
   );
 
@@ -72,11 +72,11 @@ function gb_item_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 7,
+        'weight' => 8,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -97,7 +97,7 @@ function gb_item_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 11,
+      'weight' => 8,
     ),
   );
 
@@ -112,11 +112,11 @@ function gb_item_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'entityreference',
         'settings' => array(
-          'links' => 0,
+          'links' => TRUE,
           'view_mode' => 'default',
         ),
         'type' => 'entityreference_entity_view',
-        'weight' => 1,
+        'weight' => 3,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -147,7 +147,7 @@ function gb_item_field_default_field_instances() {
         ),
       ),
       'type' => 'inline_entity_form',
-      'weight' => 3,
+      'weight' => 4,
     ),
   );
 
@@ -159,11 +159,11 @@ function gb_item_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'taxonomy',
         'settings' => array(),
         'type' => 'taxonomy_term_reference_link',
-        'weight' => 6,
+        'weight' => 9,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -203,7 +203,7 @@ function gb_item_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 2,
+        'weight' => 6,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -227,7 +227,7 @@ function gb_item_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 6,
+      'weight' => 9,
     ),
   );
 
@@ -243,7 +243,7 @@ function gb_item_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 3,
+        'weight' => 7,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -282,7 +282,7 @@ function gb_item_field_default_field_instances() {
           'image_style' => '345x612',
         ),
         'type' => 'image',
-        'weight' => 8,
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -327,7 +327,7 @@ function gb_item_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'media_generic',
-      'weight' => 5,
+      'weight' => 6,
     ),
   );
 
@@ -340,9 +340,10 @@ function gb_item_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'inline',
+        'module' => 'taxonomy',
         'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 10,
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 4,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -379,7 +380,7 @@ function gb_item_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 4,
+        'weight' => 11,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -403,7 +404,7 @@ function gb_item_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 8,
+      'weight' => 11,
     ),
   );
 
@@ -419,7 +420,7 @@ function gb_item_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 5,
+        'weight' => 10,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -443,7 +444,7 @@ function gb_item_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 9,
+      'weight' => 12,
     ),
   );
 
@@ -455,10 +456,11 @@ function gb_item_field_default_field_instances() {
     'description' => 'Does this item reference a brewery in general or a specific beer from a brewery?',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
+        'module' => 'list',
         'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 9,
+        'type' => 'list_default',
+        'weight' => 1,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -479,6 +481,46 @@ function gb_item_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance: 'node-item-field_type_descriptor'
+  $field_instances['node-item-field_type_descriptor'] = array(
+    'bundle' => 'item',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'If Type of item is "other", you can add a descriptor for the type of item here.',
+    'display' => array(
+      'default' => array(
+        'label' => 'inline',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 5,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_type_descriptor',
+    'label' => 'Type descriptor',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
       'weight' => 2,
     ),
   );
@@ -491,10 +533,12 @@ function gb_item_field_default_field_instances() {
   t('Descriptors');
   t('Does this item reference a brewery in general or a specific beer from a brewery?');
   t('Glass shape');
+  t('If Type of item is "other", you can add a descriptor for the type of item here.');
   t('Image');
   t('Notes');
   t('Private notes');
   t('Reference type');
+  t('Type descriptor');
   t('Type of item');
   t('Volume');
 

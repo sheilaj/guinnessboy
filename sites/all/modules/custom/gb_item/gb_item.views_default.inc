@@ -29,19 +29,33 @@ function gb_item_views_default_views() {
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['exposed_form']['options']['reset_button'] = TRUE;
-  $handler->display->display_options['exposed_form']['options']['autosubmit'] = TRUE;
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '50';
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
-    'title' => 'title',
-    'field_beer' => 'field_beer',
+    'views_bulk_operations' => 'views_bulk_operations',
     'field_brewery' => 'field_brewery',
+    'title_1' => 'field_brewery',
+    'field_beer' => 'field_beer',
     'field_item_type' => 'field_item_type',
+    'field_image' => 'field_image',
+    'flagged' => 'flagged',
+    'title' => 'title',
+    'edit_node' => 'edit_node',
   );
   $handler->display->display_options['style_options']['default'] = '-1';
   $handler->display->display_options['style_options']['info'] = array(
-    'title' => array(
+    'views_bulk_operations' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_brewery' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'title_1' => array(
       'sortable' => 0,
       'default_sort_order' => 'asc',
       'align' => '',
@@ -53,14 +67,31 @@ function gb_item_views_default_views() {
       'separator' => '',
       'empty_column' => 0,
     ),
-    'field_brewery' => array(
+    'field_item_type' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
-    'field_item_type' => array(
+    'field_image' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'flagged' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'title' => array(
       'sortable' => 0,
       'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'edit_node' => array(
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
@@ -72,6 +103,10 @@ function gb_item_views_default_views() {
   $handler->display->display_options['header']['area']['field'] = 'area';
   $handler->display->display_options['header']['area']['content'] = '<a href="node/add/item">Add item</a>';
   $handler->display->display_options['header']['area']['format'] = 'filtered_html';
+  /* Header: Global: Result summary */
+  $handler->display->display_options['header']['result']['id'] = 'result';
+  $handler->display->display_options['header']['result']['table'] = 'views';
+  $handler->display->display_options['header']['result']['field'] = 'result';
   /* Relationship: Entity Reference: Referenced Entity */
   $handler->display->display_options['relationships']['field_beer_target_id']['id'] = 'field_beer_target_id';
   $handler->display->display_options['relationships']['field_beer_target_id']['table'] = 'field_data_field_beer';
@@ -90,6 +125,11 @@ function gb_item_views_default_views() {
   $handler->display->display_options['relationships']['flag_content_rel']['required'] = 0;
   $handler->display->display_options['relationships']['flag_content_rel']['flag'] = 'incomlete';
   $handler->display->display_options['relationships']['flag_content_rel']['user_scope'] = 'any';
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_brewery_target_id_1']['id'] = 'field_brewery_target_id_1';
+  $handler->display->display_options['relationships']['field_brewery_target_id_1']['table'] = 'field_data_field_brewery';
+  $handler->display->display_options['relationships']['field_brewery_target_id_1']['field'] = 'field_brewery_target_id';
+  $handler->display->display_options['relationships']['field_brewery_target_id_1']['label'] = 'Direct brewery ref';
   /* Field: Bulk operations: Content */
   $handler->display->display_options['fields']['views_bulk_operations']['id'] = 'views_bulk_operations';
   $handler->display->display_options['fields']['views_bulk_operations']['table'] = 'node';
@@ -151,7 +191,7 @@ function gb_item_views_default_views() {
       'label' => '',
     ),
     'action::views_bulk_operations_modify_action' => array(
-      'selected' => 0,
+      'selected' => 1,
       'postpone_processing' => 0,
       'skip_confirmation' => 0,
       'override_label' => 0,
@@ -159,7 +199,8 @@ function gb_item_views_default_views() {
       'settings' => array(
         'show_all_tokens' => 1,
         'display_values' => array(
-          '_all_' => '_all_',
+          'item::field_item_type' => 'item::field_item_type',
+          'item::field_reference_type' => 'item::field_reference_type',
         ),
       ),
     ),
@@ -238,6 +279,13 @@ function gb_item_views_default_views() {
     'link' => 1,
   );
   $handler->display->display_options['fields']['field_brewery']['delta_offset'] = '0';
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
+  $handler->display->display_options['fields']['title_1']['table'] = 'node';
+  $handler->display->display_options['fields']['title_1']['field'] = 'title';
+  $handler->display->display_options['fields']['title_1']['relationship'] = 'field_brewery_target_id_1';
+  $handler->display->display_options['fields']['title_1']['label'] = '';
+  $handler->display->display_options['fields']['title_1']['element_label_colon'] = FALSE;
   /* Field: Content: Beer */
   $handler->display->display_options['fields']['field_beer']['id'] = 'field_beer';
   $handler->display->display_options['fields']['field_beer']['table'] = 'field_data_field_beer';
